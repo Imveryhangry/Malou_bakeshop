@@ -1,29 +1,19 @@
 <?php
-// ============================================================
-//  api/register.php
-//  Creates new user accounts.
-//  IMPORTANT: Only accessible by a logged-in admin.
-//  This is NOT a public endpoint.
-//
-//  Actions:
-//    POST action=create  → register a new user
-//    GET  ?action=list   → list all users
-//    POST action=delete  → delete a user (cannot delete yourself)
-// ============================================================
+
 
 session_start();
 header('Content-Type: application/json');
 
-// Block anyone who is not already logged in
-if (!isset($_SESSION['user_id'])) {
+require_once __DIR__ . '/../config/db.php';
+
+$action = $_GET['action'] ?? $_POST['action'] ?? '';
+
+// 'create' is public. 'list' and 'delete' require login.
+if ($action !== 'create' && !isset($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode(['success' => false, 'message' => 'Unauthorized.']);
     exit;
 }
-
-require_once __DIR__ . '/../config/db.php';
-
-$action = $_GET['action'] ?? $_POST['action'] ?? '';
 
 // ── LIST ALL USERS ───────────────────────────────────────────
 if ($action === 'list') {
