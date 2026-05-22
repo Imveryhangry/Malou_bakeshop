@@ -1,19 +1,18 @@
 <?php
 
-
 session_start();
 header('Content-Type: application/json');
 
-require_once __DIR__ . '/../config/db.php';
-
-$action = $_GET['action'] ?? $_POST['action'] ?? '';
-
-// 'create' is public. 'list' and 'delete' require login.
-if ($action !== 'create' && !isset($_SESSION['user_id'])) {
+// Block anyone who is not already logged in
+if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode(['success' => false, 'message' => 'Unauthorized.']);
     exit;
 }
+
+require_once __DIR__ . '/../config/db.php';
+
+$action = $_GET['action'] ?? $_POST['action'] ?? '';
 
 // ── LIST ALL USERS ───────────────────────────────────────────
 if ($action === 'list') {

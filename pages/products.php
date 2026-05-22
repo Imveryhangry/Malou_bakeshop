@@ -34,7 +34,6 @@ $current_page = 'products';
     <div class="page-header">
       <div>
         <h2>Product Catalog</h2>
-        <p>Manage all bakeshop products and their pricing.</p>
       </div>
       <button class="btn btn-primary" onclick="openAddModal()">+ Add Product</button>
     </div>

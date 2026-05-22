@@ -1,9 +1,5 @@
 <?php
-// ============================================================
-//  pages/users.php
-//  Admin-only page to manage system user accounts.
-//  Accessible only when logged in.
-// ============================================================
+
 require_once __DIR__ . '/../config/session.php';
 $current_page = 'users';
 ?>
@@ -34,7 +30,6 @@ $current_page = 'users';
     <div class="page-header">
       <div>
         <h2>User Accounts</h2>
-        <p>Manage who has access to this system.</p>
       </div>
       <button class="btn btn-primary" onclick="openModal('modal-add')">+ Add Account</button>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+
 session_start();
 
 // All responses from this file are JSON
@@ -52,11 +53,3 @@ if ($method === 'POST') {
 // Any other HTTP method is not allowed
 http_response_code(405);
 echo json_encode(['success' => false, 'message' => 'Method not allowed.']);
-
-// ── CHECK IF ANY USERS EXIST (for first-time setup banner) ───
-// This is the only public action — no session required.
-if ($method === 'GET' && isset($_GET['action']) && $_GET['action'] === 'check_users') {
-    $count = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
-    echo json_encode(['no_users' => (int)$count === 0]);
-    exit;
-}

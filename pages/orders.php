@@ -47,7 +47,6 @@ $current_page = 'orders';
     <div class="page-header">
       <div>
         <h2>Orders</h2>
-        <p>Manage all customer orders. Status flows: Pending → In Progress → Completed.</p>
       </div>
       <button class="btn btn-primary" onclick="openAddModal()">+ New Order</button>
     </div>

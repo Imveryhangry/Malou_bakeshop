@@ -1,10 +1,5 @@
 <?php
-// ============================================================
-//  includes/sidebar.php
-//  Included by every page inside the app shell.
-//  $current_page is set by each page before including this.
-//  Example: $current_page = 'orders';
-// ============================================================
+
 $current_page = $current_page ?? '';
 ?>
 <aside class="sidebar">

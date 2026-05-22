@@ -30,7 +30,6 @@ $current_page = 'inventory';
     <div class="page-header">
       <div>
         <h2>Inventory</h2>
-        <p>Track all ingredients and supplies. Items below their reorder level are flagged automatically.</p>
       </div>
       <button class="btn btn-primary" onclick="openAddModal()">+ Add Item</button>
     </div>

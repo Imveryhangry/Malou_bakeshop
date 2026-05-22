@@ -56,7 +56,6 @@ $current_page = 'sales';
     <div class="page-header">
       <div>
         <h2>Sales Reports</h2>
-        <p>All sales are recorded automatically when an order is marked as Completed.</p>
       </div>
     </div>
 
